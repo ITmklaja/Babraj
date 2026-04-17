@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawid Babraj</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)),
+                url('032.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Hero Section - Wideo */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .hero video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) skewX(-12deg);
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            font-style: italic;
+            color: white;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+            text-align: center;
+            z-index: 10;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            animation: fadeInScale 0.5s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) skewX(-12deg) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) skewX(-12deg) scale(1);
+            }
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Content Items */
+        .content-item {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            flex-wrap: wrap;
+        }
+
+        .content-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .image-container {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .text-container {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .text-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 800;
+            border-bottom: 4px solid #0066ff;
+            padding-bottom: 10px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .content-item.reverse .text-container h2 {
+            border-bottom-color: #ccff00;
+        }
+
+        .text-container p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #222;
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: #e85a27;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin-top: 20px;
+        }
+
+        /* Responsywność - Tablet */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero-text {
+                font-size: 3.5rem;
+            }
+
+            .content {
+                padding: 60px 15px;
+            }
+
+            .content-item {
+                flex-direction: column;
+                gap: 40px;
+                margin-bottom: 80px;
+            }
+
+            .content-item.reverse {
+                flex-direction: column;
+            }
+
+            .image-container img {
+                max-width: 280px;
+            }
+
+            .text-container h2 {
+                font-size: 1.6rem;
+            }
+
+            .text-container p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Responsywność - Telefon */
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+
+            .hero-text {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 40px 10px;
+            }
+
+            .content-item {
+                margin-bottom: 50px;
+            }
+
+            .text-container h2 {
+                font-size: 1.3rem;
+            }
+
+            .text-container p {
+                font-size: 0.95rem;
+                text-align: left;
+            }
+
+            .image-container img {
+                max-width: 200px;
+            }
+
+            .social-links {
+                gap: 20px;
+            }
+
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Hero Section z wideo -->
+        <section class="hero">
+            <video autoplay muted loop>
+                <source src="DAWID_CINEMATIC.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje znacznika video.
+            </video>
+            <div class="hero-text">Dawid Babraj</div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="content">
+            <!-- Pierwszy element: Zdjęcie - Tekst -->
+            <div class="content-item">
+                <div class="image-container">
+                    <img src="web1.jpg" alt="Zdjęcie 1">
+                </div>
+                <div class="text-container">
+                    <h2>Sekcja Pierwsza</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Drugi element: Tekst - Zdjęcie -->
+            <div class="content-item reverse">
+                <div class="image-container">
+                    <img src="web2.jpg" alt="Zdjęcie 2">
+                </div>
+                <div class="text-container">
+                    <h2>Sekcja Druga</h2>
+                    <p>
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank" title="Facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="footer-text">&copy; 2026 Dawid Babraj. Wszystkie prawa zastrzeżone.</p>
+            <p class="footer-text">kontakt: karol@kbasz.pl</p>
+        </div>
+    </footer>
+</body>
+</html>
